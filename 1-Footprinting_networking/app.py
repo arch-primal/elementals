@@ -27,7 +27,7 @@ with socket.socket(socket.AF_INET, socket_type) as s:
             with conn:
                 print('Connected by', addr)
                 data = conn.recv(1024)
-                if data.decode().strip() == KEY:
+                if data.decode() == KEY:
                     conn.sendall(SUCCESS)
                     print("Mensaje de éxito enviado, cerrando conexión.")
                     conn.close()
@@ -37,7 +37,7 @@ with socket.socket(socket.AF_INET, socket_type) as s:
         else:  # UDP
             data, addr = s.recvfrom(1024)
             print('Connected by', addr)
-            if data.decode().strip() == KEY:
+            if data.decode() == KEY:
                 s.sendto(SUCCESS, addr)
                 print("Mensaje de éxito enviado.")
             else:
