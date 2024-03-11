@@ -1,4 +1,4 @@
-#SSHield
+# SSHield
 
 ## Descripción
 Este proyecto expone un puerto dentro del host, el cual solo es accesible por conexiones SSH.
@@ -10,12 +10,17 @@ Una vez tengas Docker instalado, sigue los siguientes pasos para desplegar el pr
 
 1. **Clona el repositorio**
 
+```bash
+git clone https://github.com/kradbyte/elementals-labs.git
+cd elementals-labs/2-SSHield
+```
+
 2. **Construye la Imagen Docker**
 
-Abre una terminal en el directorio donde se encuentra el `Dockerfile` de KeyGate SSH y ejecuta el siguiente comando para construir la imagen Docker de la aplicación:
+Abre una terminal en el directorio donde se encuentra el `Dockerfile` de SSHield y ejecuta el siguiente comando para construir la imagen Docker de la aplicación:
 
 ```bash
-docker build -t sshield-image
+docker build -t sshield-image .
 ```
 
 3. **Ejecuta el contenedor**
@@ -28,7 +33,7 @@ Toma en cuenta que puedes establecer la conexión por SSH tanto con una llave p�
 Para configurar conexiones por contraseña, deberemos ejecutar el siguiente comando:
 
 ```bash
-docker build -d --name sshield-container -p PUERTO_LOCAL:22 -e KEY='YOUR_PASSWORD' sshield-image
+docker run -d --name sshield-container -p PUERTO_LOCAL:22 -e KEY='YOUR_PASSWORD' sshield-image
 ```
 
 Reemplaza `PUERTO_LOCAL` con el puerto en tu máquina anfitriona que deseas usar para acceder a SSHield, al igual que deberás reemplazar `YOUR_PASSWORD` con tu contraseña para acceder a la máquina.
@@ -38,7 +43,7 @@ Reemplaza `PUERTO_LOCAL` con el puerto en tu máquina anfitriona que deseas usar
 Para configurar conexiones por llave pública, deberemos ejecutar el siguiente comando:
 
 ```bash
-docker buld -d --name sshield-container -p PUERTO_LOCAL:22 -v "$(pwd)/keys:/keys" sshield-image
+docker run -d --name sshield-container -p PUERTO_LOCAL:22 -v "$(pwd)/keys:/keys" sshield-image
 ```
 
 Reemplaza `PUERTO_LOCAL` con el puerto de tu máquina anfitriona. Toma en cuenta que al ejecutar este comando deberás estar en el mismo directorio donde se encuentra el `Dockerfile`, dado que se monta un volumen con el directorio `keys`. En este directorio encontrarás la llave pública y privada para realizar la conexión.
@@ -47,7 +52,7 @@ Reemplaza `PUERTO_LOCAL` con el puerto de tu máquina anfitriona. Toma en cuenta
 
 1. **Discovery Hosts**
 
-Primero deberemos escanear la red para descubrir los hosts "entendidos".
+Primero deberemos escanear la red para descubrir los hosts activos.
 
 ```bash
 nmap -sn 192.168.0.0/24
@@ -73,6 +78,7 @@ Cuando hayamos descubierto los puertos que contengan algún servicio SSH, debere
 ssh -p PUERTO_LOCAL root@192.168.0.1
 ```
 
+Una vez hecha la conexión nos solicitará la contraseña.
 Si configuramos la máquina para conexiones con llave pública, deberemos ejecutar:
 
 ```bash
@@ -81,4 +87,6 @@ ssh -p PUERTO_LOCAL -i myPublicKey root@192.168.0.1
 
 No olvides reemplazar `PUERTO_LOCAL` por el puerto que estés probando, así como la IP `192.168.0.1` por el host que estés verificando y `myPublicKey` por el archivo que contenga la llave pública.
 
-> Nota: en la carpeta `keys` encontrarás tanto las llaves para conexiones SSH por llave pública. Deberás proporcionar el archivo `key` sin la extensión `.pub`. En caso de tener más de un contenedor por conexiones por llave pública, todos solicitarán la misma llave pública.
+> Nota: en la carpeta `keys` encontrarás las llaves para conexiones SSH por llave pública. Deberás proporcionar el archivo `key` sin la extensión `.pub`, de la carpeta `keys` donde se encuentra el Dockerfile de SSHield. En caso de tener más de un contenedor por conexiones por llave pública, todos los contenedores solicitarán la misma llave pública.
+
+Una vez hecha la conexión deberás encontrar el archivo `secret` en la máquina, que contendrá una cadena en base 64.
