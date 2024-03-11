@@ -6,12 +6,14 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Actualizar repositorios e instalar OpenSSH Server
 RUN apt-get update && apt-get install -y openssh-server sudo
 
-# Configurar el directorio para las llaves SSH y el archivo de configuración
-RUN mkdir /var/run/sshd
-RUN mkdir -p /root/.ssh
-RUN chmod 700 /root/.ssh
+# Configurar el directorio para las llaves SSH
+RUN mkdir /keys
+
+# Agregar nuestro archivo secreto
+COPY .secret /root/.secret
 
 # Añadir nuestro script de inicio
+RUN mkdir /run/sshd
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
