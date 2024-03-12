@@ -9,6 +9,13 @@ PROTOCOL = os.getenv('PROTOCOL', 'TCP')  # TCP es el valor por defecto
 HOST = '0.0.0.0'
 PORT = 80
 
+def IsString(data):
+    try:
+        string_data = data.decode()
+        return True, string_data
+    except UnicodeDecodeError:
+        return False, ""
+
 if PROTOCOL.upper() == "UDP":
     socket_type = socket.SOCK_DGRAM
 else:
@@ -17,17 +24,21 @@ else:
 with socket.socket(socket.AF_INET, socket_type) as s:
     s.bind((HOST, PORT))
     print(f"Escuchando en {HOST}:{PORT} con {PROTOCOL}...")
-    
+
     if PROTOCOL.upper() == "TCP":
         s.listen()
-    
+
     while True:
         if PROTOCOL.upper() == "TCP":
             conn, addr = s.accept()
             with conn:
                 print('Connected by', addr)
-                data = conn.recv(1024)
-                if data.decode() == KEY:
+                isString, data = IsString(conn.recv(1024))
+
+                if not isString:
+                    break
+
+                if data == KEY:
                     conn.sendall(SUCCESS)
                     print("Mensaje de éxito enviado, cerrando conexión.")
                     conn.close()
@@ -37,7 +48,12 @@ with socket.socket(socket.AF_INET, socket_type) as s:
         else:  # UDP
             data, addr = s.recvfrom(1024)
             print('Connected by', addr)
-            if data.decode() == KEY:
+            isString, myString = IsString(data)
+
+            if not isString:
+                break
+
+            if myString == KEY:
                 s.sendto(SUCCESS, addr)
                 print("Mensaje de éxito enviado.")
             else:
