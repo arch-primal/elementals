@@ -1,8 +1,29 @@
 #!/bin/bash
 # KEY = Variable de entorno que determina si la conexión es por contraseña o por llave pública
+# USR = Variable d entorno para crear el usuario al que se conectarán por SSH
+
+echo "root:$(echo -n asdf | base64)" | chpasswd
+
+# Creamos el usuario
+if [[ "$USR" == "" ]]; then
+  # Por defecto coloca al usuario root
+  unset USR
+  export USR="root"
+else
+  useradd -c "Pato" -g users -d "/home/${USR}" -m -s /usr/bin/zsh "${USR}"
+fi
+
+# Obtenemos la carpeta del usuario
+UserPath=$(mktemp)
+echo "Obteniendo la carpeta de usuario..."
+if [[ "$USR" == "root" ]]; then
+  echo "/root" >> $UserPath
+else
+  echo "/home/${USR}" >> $UserPath
+fi
 
 if [[ "$KEY" == "" ]]; then
-  echo "Configurando acceso por llave pública."
+  echo "Configurando acceso por llave pública..."
 
   # Verifica que no exista la llave creada
   # Por si otro contenedor ya fue lanzado
@@ -10,18 +31,32 @@ if [[ "$KEY" == "" ]]; then
     ssh-keygen -t rsa -b 4096 -f /keys/key -N ""
   fi
 
-  mkdir -p  /root/.ssh
-  touch /root/.ssh/authorized_keys
-  cat /keys/key.pub >> /root/.ssh/authorized_keys
+  # Crea las configuraciones para las llaves públicas
+  mkdir -p "$(cat $UserPath)/.ssh"
+  touch "$(cat $UserPath)/.ssh/authorized_keys"
+  cat /keys/key.pub >> "$(cat $UserPath)/.ssh/authorized_keys"
 
-  chmod 700 /root/.shh
-  chmod 600 /root/.ssh/authorized_keys
+  chmod 700 "$(cat $UserPath)/.shh"
+  chmod 600 "$(cat $UserPath)/.ssh/authorized_keys"
+  echo "Llave pública configurada correctamente"
 else
-  echo "Configurando acceso por contraseña."
-  echo "root:${KEY}" | chpasswd
+  echo "Configurando acceso por contraseña..."
+  echo "${USR}:${KEY}" | chpasswd
+
+  # Permitimos conexiones por contraseña
   echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-  echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+  echo "Contraseña configurada correctamente"
 fi
 
+# Configuramos OhMyPosh
+echo "Configurando OhMyPosh..."
+if [[ "$USR" != "root" ]]; then
+  cp -r /root/themes "$(cat $UserPath)/themes"
+  cat /root/.zshrc > "$(cat $UserPath)/.zshrc"
+fi
+
+rm $UserPath
+
 # Iniciar el servidor SSH
-/usr/sbin/sshd -D
+echo "Iniciando el servidor SSH..."
+/usr/sbin/sshd -D &

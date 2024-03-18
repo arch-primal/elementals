@@ -3,8 +3,12 @@ FROM ubuntu:latest
 # Evitar preguntas al instalar paquetes
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Actualizar repositorios e instalar OpenSSH Server
-RUN apt-get update && apt-get install -y openssh-server sudo
+# Actualizar repositorios e instalar OpenSSH Server y la zsh
+RUN apt-get update && apt-get install -y openssh-server zsh curl unzip sudo
+
+# Instalamos OhMyPosh
+RUN curl -s https://ohmyposh.dev/install.sh | bash -sh
+COPY .zshrc /root/.zshrc
 
 # Configurar el directorio para las llaves SSH
 RUN mkdir /keys
