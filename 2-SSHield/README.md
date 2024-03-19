@@ -89,18 +89,18 @@ ssh -p PUERTO_LOCAL -i myPublicKey root@192.168.0.1
 
 No olvides reemplazar `PUERTO_LOCAL` por el puerto que estés probando, así como la IP `192.168.0.1` por el host que estés verificando y `myPublicKey` por el archivo que contenga la llave pública.
 
-> Nota: en la carpeta _keys_ encontrarás las llaves para conexiones SSH por llave pública. Deberás proporcionar el archivo `key` sin la extensión *.pub*, de la carpeta _keys_ donde se encuentra el Dockerfile de SSHield. En caso de tener más de un contenedor por conexiones por llave pública, todos los contenedores solicitarán la misma llave pública.
+> Nota: en la carpeta _keys_ encontrarás las llaves para conexiones SSH por llave pública. Deberás proporcionar el archivo `key` sin la extensión **.pub**, de la carpeta _keys_ donde se encuentra el Dockerfile de SSHield. En caso de tener más de un contenedor por conexiones por llave pública, todos los contenedores solicitarán la misma llave pública.
 
 4. **Leyendo el archivo secreto**
 
-Una vez dentro de la máquina deberemos encontrar el archivo *secret*, podremos utilizar un comando como el siguiente:
+Una vez dentro de la máquina deberemos encontrar el archivo **secret**, podremos utilizar un comando como el siguiente:
 
 ```bash
 find / -name \*secret\* 2>/dev/null
 ```
 
 Cuando hayamos ubicado la carpeta al intentar leer el archivo, es probable que no tengamos permiso. Pero dentro del directorio encontraremos el archivo *task.sh* que se ejecuta cada minuto.
-Al examinar el archivo *task.sh* notaremos que ejecuta todos los scripts en la carpeta `/home/.user/scripts` como el usuario `.user`, que sí está autorizado para leer el archivo secreto, por lo que deberemos dirigirnos a la carpeta _scripts_:
+Al examinar el archivo **task.sh** notaremos que ejecuta todos los scripts en la carpeta `/home/.user/scripts` como el usuario `.user`, que sí está autorizado para leer el archivo secreto, por lo que deberemos dirigirnos a la carpeta _scripts_:
 
 ```bash
 cd /home/.user/scripts
@@ -115,3 +115,7 @@ chmod 666 /home/.user/secret
 ```
 
 Cuando se haya ejecutado nuestro script podremos ver el contenido del archivo *secret*. No olvides que no deberemos dejar rastro de que vimos el archivo _secret_, por lo que tendremos que hacer otro script para eliminar el archivo temporal con el que leímos el archivo _.secret_.
+
+## Nota
+
+Se recomienda colocar una contraseña y un usuario basado en [SecLilst](https://github.com/danielmiessler/SecLists) para practicar expolotación de autentificación por fuerza bruta con `Hydra` u otra herramienta orientada a estas explotaciones.
