@@ -75,11 +75,14 @@ chown .user /home/.user/scripts
 echo "Configurando tareas cron..."
 chmod 774 /home/.user/task.sh
 chown .user /home/.user/task.sh
-(crontab -u root -l; echo "* * * * * su - .user -c '/home/.user/task.sh'") | crontab -u root -
+echo "* * * * * .user /home/.user/task.sh" > /etc/cron.d/user-task
 service cron start
 
 rm $UserPath
 
 # Iniciar el servidor SSH
 echo "Iniciando el servidor SSH..."
+echo "ClientAliveInterval 300" >> /etc/ssh/sshd_config
+echo "ClientAliveCountMax 1" >> /etc/ssh/sshd_config
+kill $(pgrep sshd)
 /usr/sbin/sshd -D
