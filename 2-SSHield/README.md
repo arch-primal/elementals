@@ -64,7 +64,7 @@ No ovlides reemplazar _192.168.0.0_ con la IP que estás auditando.
 
 2. **Port scanning**
 
-Con el listado de hosts activos que encontramos, deberemos buscar en cada uno, por TCP, los puertos que están biertos.
+Con el listado de hosts activos que encontramos, deberemos buscar en cada uno, por TCP, los puertos que están abiertos.
 
 ```bash
 nmap -Pn -p- 192.168.0.1
