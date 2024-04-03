@@ -1,31 +1,45 @@
 #!/bin/bash
 
 # Creación de usuario invitado
-useradd -c "Pato" -g users -G users -d /home/user -m -s /usr/bin/zsh user
-echo "user:camaro" | chpasswd
+echo "Creando usuario..."
+useradd -c "Pato" -g users -G users -d /home/guest -m -s /usr/bin/zsh guest
+echo "guest:camaro" | chpasswd
 
 # Configuración de OhMyPosh
-cp /root/.zshrc /home/user/.zshrc
-cp -r /root/themes /home/user/themes
+echo "Configurando OhMyPosh..."
+cp /root/.zshrc /home/guest/.zshrc
+cp -r /root/themes /home/guest/themes
+
+# Configuración FTP
+echo "Configurando FTP..."
+cat /root/vsftpd.conf > /etc/vsftpd.conf
+mkdir -p /var/run/vsftpd/empty
+mkdir /home/guest/ips
+chmod 777 /home/guest/ips
+vsftpd &
 
 # Configuración de la Reverse Shell
+echo "Configurando Reverse Shell..."
 mkdir -p /home/share
 echo "" >> /home/share/config.txt
-cp /root/reverse_shell.py /home/user/reverse_shell.py
-chmod 710 /home/user/reverse_shell.py
-chown root:users /home/user/reverse_shell.py
+cp /root/reverse_shell.py /home/guest/reverse_shell.py
+chmod 750 /home/guest/reverse_shell.py
+chown root:users /home/guest/reverse_shell.py
+chmod 711 /tmp/meet.sh.x
 
 # Configuración de tareas cron
-echo "*/5 * * * * user /usr/bin/python3 /home/user/reverse_shell.py" > /etc/cron.d/user-task
+echo "Programando tareas..."
+echo "*/5 * * * * guest python3 /home/guest/reverse_shell.py" > /etc/cron.d/user-task
 service cron start
 
 # Configuración de SSH
-# echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-mkdir /home/user/.ssh
-touch /home/user/.ssh/authorized_keys
-chown user:user /home/user/.ssh
-chown user:user /home/user/.ssh/authorized_keys
+echo "Configurando SSH..."
+mkdir /home/guest/.ssh
+touch /home/guest/.ssh/authorized_keys
+chown guest:users /home/guest/.ssh
+chown guest:users /home/guest/.ssh/authorized_keys
 echo "ClientAliveInterval 300" >> /etc/ssh/sshd_config
 echo "ClientAliveCountMax 1" >> /etc/ssh/sshd_config
+echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 kill $(pgrep sshd)
 /usr/sbin/sshd -D
