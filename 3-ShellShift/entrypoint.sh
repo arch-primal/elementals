@@ -18,6 +18,11 @@ mkdir /home/guest/ips
 chmod 777 /home/guest/ips
 vsftpd &
 
+# Configuración Flag
+shc -f /tmp/meet.sh
+rm /tmp/meet.sh && rm /tmp/meet.sh.x.c
+chmod 111 /tmp/meet.sh.x
+
 # Configuración de la Reverse Shell
 echo "Configurando Reverse Shell..."
 mkdir -p /home/share
@@ -35,6 +40,8 @@ service cron start
 # Configuración de SSH
 echo "Configurando SSH..."
 mkdir /home/guest/.ssh
+mkdir -p /run/sshd && sudo chmod 755 /run/sshd
+chmod 000 /home/guest/.ssh
 touch /home/guest/.ssh/authorized_keys
 chown guest:users /home/guest/.ssh
 chown guest:users /home/guest/.ssh/authorized_keys
