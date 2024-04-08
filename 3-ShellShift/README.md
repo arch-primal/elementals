@@ -1,11 +1,17 @@
 
 # ShellShift
 
-- [1. Instalación y despliegue](#instalación-y-despliegue)
-- [1.1. Despliegue de contenedor automático](#despliegue-de-contenedor-automático)
-- [1.2. Despliegue de contenedor manual](#despliegue-de-contenedor-manual)
-- [2. Descripción de ejercicio](#descripción-de-ejercicio)
-- [3. Solución de ejercicio](#solución-de-ejercicio)
+- [1. Instalación y despliegue](#1.-instalación-y-despliegue)
+- [1.1. Despliegue de contenedor automático](#1.1.-despliegue-de-contenedor-automático)
+- [1.2. Despliegue de contenedor manual](#1.2.-despliegue-de-contenedor-manual)
+- [2. Descripción de ejercicio](#2.-descripción-de-ejercicio)
+- [3. Solución de ejercicio](#3.-solución-de-ejercicio)
+- [3.1. Identificación de servicio FTP](#3.1.-identificación-de-servicio-ftp)
+- [3.2. Crackeo de credenciales FTP](#3.2.-crackeo-de-credenciales-ftp)
+- [3.3. Suplantación de identidad](#3.3.-suplantación-de-identidad)
+- [3.4. Reverse Shell](#3.4.-reverse-shell)
+- [3.5. Conexiones perdurables](#3.5.-conexiones-perdurables)
+- [3.6. Recuperación de credenciales](#3.6.-recuperación-de-credenciales)
 
 ## 1. Instalación y despligue
 
@@ -13,10 +19,10 @@ Para desplegar el laboratorio es necesario tener [Docker](http://docs.docker.com
 
 ### 1.1. Despliegue de contenedor automático
 
-Para desplegar el contenedor automáticamente, bastará con ejecuta rel siguiente comando:
+Para desplegar el contenedor automáticamente, bastará con ejecutar el siguiente comando:
 
 ```bash
-docker exec -d --name shellshift-conotainer -p [Host-Port1]:21 -p [Host-Port2]:22 -p [Host-Port-range]:40000-40010 kradbyte/shellshift:latest
+docker exec -d --name shellshift-container -p [Host-Port1]:21 -p [Host-Port2]:22 -p [Host-Port-range]:40000-40010 kradbyte/shellshift:latest
 ```
 
 Asegúrate de reemplazar `Host-Port1`, `Host-Port2` y `Host-Port-range` con tus puertos para los servicios FTP, SSH y FTP Passive, respectivamente, en caso de querer utilizar puertos personalizados.
@@ -65,7 +71,7 @@ FTP, Curl, NetCat, Hydra, Nmap, SSH
 
 ## 3.1. Identificación de servicio FTP
 
-Si se configuraron los puertos para que el servicio FTP corriera por un puerto distinto al 21, se debe utilizar alaguna herramienta de escaneo, como Nmap, para descubrir dicho servicio.
+Si se configuraron los puertos para que el servicio FTP corriera por un puerto distinto al 21, se debe utilizar alguna herramienta de escaneo, como Nmap, para descubrir dicho servicio.
 
 ```bash
 nmap -sn 192.168.0.0/24
@@ -103,3 +109,25 @@ nc -lnvp 4444
 
 Cuando el servidor nos entregue la consola interactiva podremos buscar la flag del laboratorio, pero la conexión que tenemos actualmente no será perdurable ya que cada dos minutos perderemos la conexión y deberemos repetir el proceso de enviar nuestra IP al servidor para conectarnos nuevamente, por lo que deberemos buscar una conexión persistente para evitar este inconveniente. Para ello utilizaremos SSH.
 
+```bash
+ssh-keygen -t rsa -b 4096 -f myKey -N ""
+```
+
+No olvides reemplazar `myKey` por el nombre que quieras utilizar para tu llave o el directorio donde se guardarán.
+Una vez hayamos creado nuestras llaves pública y privada, deberemos copiar la llave pública, con extención `.pub` al archivo de llaves autorizadas `authorized_keys` del directorio `.ssh`, dentro del directorio de nuestro usuario en el servidor. Una vez copiada esta llave podremos conectarnos con nuestra llave privada que generamos anteriormente. No olvides cambiar los permisos del archivo de tu llave con el permiso 600.
+
+```bash
+ssh -p [ServerPort] -i [YourKey] [UserName]@ServerIP
+```
+
+No olvides reemplazar `ServerPort` y `ServerIP` por la IP del servidor y el puerto por el configuraste que corriera SSH, así como reemplazar `YourKey` por el nombre que tenga tu llave privada dentro de tu host y `UserName` por el nombre de usuario al que te conectarás (para este caso era _guest_).
+
+## 3.6. Recuperación de credenciales
+
+Una vez hayamos establecido la conexión por SSH bastará con buscar y obtener las credenciales.
+
+```bash
+./tmp/meet.sh.x
+```
+
+> **Nota:** Las credenciales están en un archivo ejecutable
