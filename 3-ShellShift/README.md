@@ -13,7 +13,7 @@
 - [3.5. Conexiones perdurables](#3.5.-conexiones-perdurables)
 - [3.6. Recuperación de credenciales](#3.6.-recuperación-de-credenciales)
 
-## 1. Instalación y despligue
+## 1. Instalación y despliegue
 
 Para desplegar el laboratorio es necesario tener [Docker](http://docs.docker.com/get-docker/) instalado. Una vez instalado podremos descargar o construir la imagen.
 
@@ -95,7 +95,7 @@ Una vez hayamos obtenido las credenciales del servicio FTP deberemos enviar nues
 curl -T <(echo "ClientIP:ClientPort") ftp://UserServer:PassServer@ServerIP:ServerPort/ips/PatoIP.txt
 ```
 
-No olvides reemplazar `ClientIP` y `ClientPort` por la IP y el puerto de Host, así como `UserServer` y `PassServer` por la IP y el puerto del Servidor.
+No olvides reemplazar `ClientIP` y `ClientPort` por la IP y el puerto de tu Host, así como `UserServer` y `PassServer` por el usuario y la contraseña que hayamos encontrado en anteriormente. Finalmente deberemos reeplazar `ServerIP` y `ServerPort` por la IP y el puerto del servidor por la que corre el servicio FTP.
 
 ## 3.4. Reverse Shell
 
@@ -113,8 +113,8 @@ Cuando el servidor nos entregue la consola interactiva podremos buscar la flag d
 ssh-keygen -t rsa -b 4096 -f myKey -N ""
 ```
 
-No olvides reemplazar `myKey` por el nombre que quieras utilizar para tu llave o el directorio donde se guardarán.
-Una vez hayamos creado nuestras llaves pública y privada, deberemos copiar la llave pública, con extención `.pub` al archivo de llaves autorizadas `authorized_keys` del directorio `.ssh`, dentro del directorio de nuestro usuario en el servidor. Una vez copiada esta llave podremos conectarnos con nuestra llave privada que generamos anteriormente. No olvides cambiar los permisos del archivo de tu llave con el permiso 600.
+No olvides reemplazar `myKey` por el nombre que quieras utilizar para tu llave o el directorio donde se guardará.
+Una vez hayamos creado nuestras llaves pública y privada, deberemos copiar la llave pública, con extención `.pub`, al archivo de llaves autorizadas `authorized_keys` del directorio `.ssh`, dentro del directorio de nuestro usuario en el servidor. Una vez copiada esta llave podremos conectarnos con nuestra llave privada que generamos anteriormente. No olvides cambiar el permiso de tu llave privada por el permiso 600.
 
 ```bash
 ssh -p [ServerPort] -i [YourKey] [UserName]@ServerIP

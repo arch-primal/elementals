@@ -27,6 +27,15 @@ El laboratorio [StringLock](/1-StringLock) te desafía a descubrir un puerto ocu
 **Descripción**:
 Con el laboratorio [SSHield](/2-SSHield), explorarás los fundamentos de SSH y el funcionamiento de los servidores bajo esta capa de seguridad. Se espera que establezcas una conexión SSH segura a un host designado y, una vez dentro, te sumergirás en un entorno desafiante donde deberás encontrar una "flag" oculta. Este laboratorio no solo pondrá a prueba tus habilidades de conexión segura sino que también te enseñará técnicas de exploración y recolección de información dentro de sistemas comprometidos.
 
+### 2.4. Gaining persistence FT. Reverse Shell
+
+**Objetivos de Aprendizaje**:
+- Configurar conexiones SSH y FTP.
+- Familiarizarse con la _reverse shell_ y la persistencia que se puede configurar al ganar acceso a un servidor.
+
+**Descripción**:
+El laboratorio [ShellShift](/3-ShellShift) está diseñado para repasar transferencia de archivos por FTP y generar llaves públicas y privadas para conexiones SSH.
+
 ## 3. Comenzando
 
 Para empezar con 'Elementals', asegúrate de tener Docker instalado en tu sistema. Cada laboratorio viene con instrucciones detalladas sobre cómo desplegarlo y configurarlo usando Docker, lo que te permitirá enfocarte en el aprendizaje y la práctica sin preocuparte por la configuración del entorno.
