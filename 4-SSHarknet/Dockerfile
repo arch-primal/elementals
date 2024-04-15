@@ -8,7 +8,10 @@ RUN \
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
 COPY .zshrc /root/.zshrc
 
-# EXPOSE 100-101
+# Archivos de configuración
+COPY vsftpd.conf /root/vsftpd.conf
+
+EXPOSE 21 22 40000-40010
 
 # Configuración de script principal
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
