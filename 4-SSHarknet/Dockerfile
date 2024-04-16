@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN \
 	apt-get update && apt-get install -y \
-	curl cron openssh-server unzip tcpdump exa bat vsftpd zsh
+	curl cron openssh-server unzip tcpdump exa bat vsftpd zsh libcap2-bin xxd
 
 # Instalación OhMyPosh
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
@@ -10,6 +10,9 @@ COPY .zshrc /root/.zshrc
 
 # Archivos de configuración
 COPY vsftpd.conf /root/vsftpd.conf
+COPY createkey.sh /root/createkey.sh
+COPY initserver.py /root/initserver.py
+COPY backup.sh /root/backup.sh
 
 EXPOSE 21 22 40000-40010
 
