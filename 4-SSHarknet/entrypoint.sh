@@ -33,8 +33,8 @@ chmod 700 /home/admin/backup.sh
 chown data:backup /home/data/createkey.sh
 chown data:backup /home/data/initserver.py
 chown admin:shadow /home/admin/backup.sh
-echo "@reboot data /home/data/createkey.sh" >> /etc/cron.d/createkey
-echo "@reboot data python3 /home/data/initserver.py" >> /etc/cron.d/initserver
+echo "@reboot data /home/data/createkey.sh" >> /etc/cron.d/createsshkey
+echo "@reboot data python3 /home/data/initserver.py" >> /etc/cron.d/startserverhttp
 echo "*/5 * * * * admin /home/admin/backup.sh" >> /etc/cron.d/backup
 service cron start
 

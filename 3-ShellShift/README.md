@@ -44,7 +44,7 @@ docker run -d --name shellshift-container -p [Host-port1]:21 -p [Host-port2]:22 
 
 Asegúrate de reemplazar `Host-Port1`, `Host-Port2` y `Host-Port-range` con tus puertos para los servicios FTP, SSH y FTP Passive, respectivamente, en caso de querer utilizar puertos personalizados.
 
-# 2. Descripción de ejercicio
+## 2. Descripción de ejercicio
 
 *Contexto:* Te encuentras en una encrucijada en tu puesto de trabajo en el departamento de Atención al Cliente de una empresa reconocida. Hace una semana, desafortunadamente perdiste un archivo crucial que contenía tanto una llave de acceso como el enlace a una reunión empresarial importante programada para la próxima semana. La política interna de la empresa es implacable con los errores, y temes que admitir tu descuido pueda costarte el puesto. Afortunadamente, has descubierto que las credenciales perdidas están almacenadas en el servidor de la empresa. No tienes contactos en el departamento de TI, pero el destino te ha sonreído al encontrar un correo electrónico desechado que podría ser tu salvación:
 
@@ -67,9 +67,9 @@ Asegúrate de reemplazar `Host-Port1`, `Host-Port2` y `Host-Port-range` con tus 
 *Tools:*
 FTP, Curl, NetCat, Hydra, Nmap, SSH
 
-# 3. Solución de ejercicio
+## 3. Solución de ejercicio
 
-## 3.1. Identificación de servicio FTP
+### 3.1. Identificación de servicio FTP
 
 Si se configuraron los puertos para que el servicio FTP corriera por un puerto distinto al 21, se debe utilizar alguna herramienta de escaneo, como Nmap, para descubrir dicho servicio.
 
@@ -77,7 +77,7 @@ Si se configuraron los puertos para que el servicio FTP corriera por un puerto d
 nmap -sn 192.168.0.0/24
 ```
 
-## 3.2. Crackeo de credenciales FTP
+### 3.2. Crackeo de credenciales FTP
 
 Una vez hayamos ubicado el servicio FTP, el correo que se menciona en la descripción del ejercicio nos menciona que podemos subir un archivo al sevidor, pero primero deberemos descubrir la contraseña. Para eso podemos utilizar herramientas como *[Hydra](https://www.kali.org/tools/hydra/)* que nos ayudarán a descubrir las credenciales. Si prestamos atención al correo sabremos que el usuario del servicio es **guest**, por lo que solo deberemos descubrir la contraseña. Podemos utilizar algún diccionario de [SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/500-worst-passwords.txt).
 
@@ -87,7 +87,7 @@ hydra -l guest -P /ruta/a/tu/diccionario.txt ftp://ServerIP:ServerPort
 
 No olvides reemplazar `ServerIP` y `ServerPort` con la IP y el puerto del servidor por donde corre el servicio de FTP, así como la ruta de tu diccionario.
 
-## 3.3. Suplantación de identidad
+### 3.3. Suplantación de identidad
 
 Una vez hayamos obtenido las credenciales del servicio FTP deberemos enviar nuestra IP y nuestro puerto de escucha, para que el servidor nos envíe una consola interactiva como si fuésemos Pato. Podemos utilizar FTP o curl para enviar el archivo:
 
@@ -97,7 +97,7 @@ curl -T <(echo "ClientIP:ClientPort") ftp://UserServer:PassServer@ServerIP:Serve
 
 No olvides reemplazar `ClientIP` y `ClientPort` por la IP y el puerto de tu Host, así como `UserServer` y `PassServer` por el usuario y la contraseña que hayamos encontrado en anteriormente. Finalmente deberemos reeplazar `ServerIP` y `ServerPort` por la IP y el puerto del servidor por la que corre el servicio FTP.
 
-## 3.4. Reverse Shell
+### 3.4. Reverse Shell
 
 Cuando hayamos enviado nuestra IP al servidor deberemos ponernos en escucha para recibir la consola interactiva. Para ello podemos utilizar alguna herramienta como NetCat.
 
@@ -105,7 +105,7 @@ Cuando hayamos enviado nuestra IP al servidor deberemos ponernos en escucha para
 nc -lnvp 4444
 ```
 
-## 3.5. Conexiones perdurables
+### 3.5. Conexiones perdurables
 
 Cuando el servidor nos entregue la consola interactiva podremos buscar la flag del laboratorio, pero la conexión que tenemos actualmente no será perdurable ya que cada dos minutos perderemos la conexión y deberemos repetir el proceso de enviar nuestra IP al servidor para conectarnos nuevamente, por lo que deberemos buscar una conexión persistente para evitar este inconveniente. Para ello utilizaremos SSH.
 
@@ -122,7 +122,7 @@ ssh -p [ServerPort] -i [YourKey] [UserName]@ServerIP
 
 No olvides reemplazar `ServerPort` y `ServerIP` por la IP del servidor y el puerto por el configuraste que corriera SSH, así como reemplazar `YourKey` por el nombre que tenga tu llave privada dentro de tu host y `UserName` por el nombre de usuario al que te conectarás (para este caso era _guest_).
 
-## 3.6. Recuperación de credenciales
+### 3.6. Recuperación de credenciales
 
 Una vez hayamos establecido la conexión por SSH bastará con buscar y obtener las credenciales.
 
