@@ -1,0 +1,20 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y \
+	exa bat zsh unzip curl libcap2-bin tcpdump cron openssh-server nano ftp
+
+# Archivos de configuración
+COPY sshd_config /root/sshd_config
+COPY .zshrc /root/.zshrc
+COPY createkey.sh /root/createkey.sh
+COPY senderkey.sh /root/senderkey.sh
+COPY nanorc /etc/nanorc
+COPY flag.sh /root/flag.sh
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s
+
+EXPOSE 22
+
+# Script de configuración general
+COPY entrya.sh /usr/local/bin/entrya.sh
+RUN chmod 700 /usr/local/bin/entrya.sh
+ENTRYPOINT ["/usr/local/bin/entrya.sh"]

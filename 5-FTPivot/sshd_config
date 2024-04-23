@@ -1,0 +1,7 @@
+ClientAliveInterval 300
+ClientAliveCountMax 2
+Match User guest
+    PasswordAuthentication yes
+
+Match User admin
+    PasswordAuthentication no
