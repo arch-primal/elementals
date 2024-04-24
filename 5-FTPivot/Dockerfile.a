@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
-	exa bat zsh unzip curl libcap2-bin tcpdump cron openssh-server nano ftp
+	exa bat zsh unzip curl libcap2-bin tcpdump cron openssh-server nano ftp xxd netcat
 
 # Archivos de configuración
 COPY sshd_config /root/sshd_config

@@ -7,8 +7,8 @@ echo "user:michelle" | chpasswd
 echo "Configurando tareas cron..."
 echo "* * * * * user /tmp/scripts/mvkey.sh" > /etc/cron.d/mvkey
 echo "*/5 * * * * user /home/user/executescripts.sh" > /etc/cron.d/executescripts
-echo "1 * * * * cat /var/log/ssh/connections" > /var/spool/cron/crontab/user
-chown user:crontab /var/spool/cron/crontab/user
+echo "1 * * * * cat /var/log/ssh/connections" > /var/spool/cron/crontabs/user
+chown user:crontab /var/spool/cron/crontabs/user
 
 if [[ -f /root/mvkey.sh ]]; then
     mkdir -p /tmp/scripts
@@ -27,7 +27,8 @@ service cron start
 echo "Configurando flag..."
 echo "ssh -i /tmp/keys/ssh/adminkey admin@ftpivot1" > /home/user/.bash_history
 mkdir -p /var/log/ssh
-echo "Admin PassPhrase: pato" && echo "Lisa PassPhrase: Pochita" > /var/log/ssh/connections
+echo "Admin PassPhrase: pato" > /var/log/ssh/connections
+echo "Lisa PassPhrase: Pochita" >> /var/log/ssh/connections
 chgrp users /var/log/ssh/connections
 
 echo "Configurando FTP..."

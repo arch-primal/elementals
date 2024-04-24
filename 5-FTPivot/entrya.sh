@@ -18,8 +18,10 @@ cp /root/.zshrc /home/guest/.zshrc && chown guest:users /home/guest/.zshrc
 cp /root/.zshrc /home/admin/.zshrc && chown admin:users /home/guest/.zshrc
 
 echo "Configurando tareas cron..."
-echo "@reboot ./root/flag.sh" > /var/spool/cron/crontabs/root
-chmod 700 /root/flag.sh && chgrp crontab /var/spool/cron/crontabs/root
+echo "@reboot /root/flag.sh" > /var/spool/cron/crontabs/root
+chmod 700 /root/flag.sh
+chmod 600 /var/spool/cron/crontabs/root
+chgrp crontab /var/spool/cron/crontabs/root
 echo "@reboot admin /home/admin/createkey.sh" > /etc/cron.d/createkey
 echo "*/6 * * * * admin /home/admin/senderkey.sh" > /etc/cron.d/sendkey
 

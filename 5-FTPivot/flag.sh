@@ -15,7 +15,8 @@ chown guest /etc/flag.old
 chown admin /etc/flag.new
 
 cp /root/kk.lock /etc/flag.old/flag.txt
-cat /root/kk.lock && /root/flag.lock > /etc/flag.new/flag.txt
+cat /root/kk.lock > /etc/flag.new/flag.txt
+cat /root/flag.lock >> /etc/flag.new/flag.txt
 
 chown guest /etc/flag.old/flag.txt
 chown admin /etc/flag.new/flag.txt
