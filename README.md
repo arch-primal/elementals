@@ -36,6 +36,25 @@ Con el laboratorio [SSHield](/2-SSHield), explorarás los fundamentos de SSH y e
 **Descripción**:
 El laboratorio [ShellShift](/3-ShellShift) está diseñado para repasar transferencia de archivos por FTP y generar llaves públicas y privadas para conexiones SSH.
 
+### 2.5. Sniffing packages ft. Privileges escalation
+
+**Objetivos de aprendizaje**:
+- Interceptar y analizar paquetes del tráfico en red interna.
+- Familiarizarse con la escala de privilegios.
+
+**Descripción**
+El laboratorio [SSharknet](/4-SSHarknet) está enfocado en practicar la captura de tráfico interno y esacala de privilegios.
+
+### 2.6. Lateral Movement ft. Pivoting
+
+**Objetivos de aprendizaje**:
+- Comprender los escenarios de uso de la Reverse Shell.
+- Analizar el potencial de poder ejecutar scripts en host.
+- Familiarizarse con los concpetos de pivoting y movimiento lateral en hacking.
+
+**Descripción**
+El laboratorio [FTPivot](/5-FTPivot) está enfocado en la práctica de obtener una reverse shell, lectura e interpretación de logs.
+
 ## 3. Comenzando
 
 Para empezar con 'Elementals', asegúrate de tener Docker instalado en tu sistema. Cada laboratorio viene con instrucciones detalladas sobre cómo desplegarlo y configurarlo usando Docker, lo que te permitirá enfocarte en el aprendizaje y la práctica sin preocuparte por la configuración del entorno.
