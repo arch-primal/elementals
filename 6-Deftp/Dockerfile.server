@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y \
+  eza bat unzip openssh-server nano zsh curl sudo
+
+# Archivos de configuración
+COPY .zshrc /root/.zshrc
+COPY nanorc /etc/nanorc
+COPY entryserver.sh /usr/local/bin/entryserver.sh
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s
+
+# Script de configuración general
+EXPOSE 22
+RUN chmod 700 /usr/local/bin/entryserver.sh
+ENTRYPOINT ["/usr/local/bin/entryserver.sh"]

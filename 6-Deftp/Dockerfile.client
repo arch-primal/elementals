@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y \
+  cron curl sudo
+
+# Archivos de configuración
+COPY entryclient.sh /usr/bin/entryclient.sh
+COPY httpserver.py /root/httpserver.py
+COPY sender.sh /tmp/sender.sh
+
+RUN chmod 700 /usr/bin/entryclient.sh
+ENTRYPOINT ["/usr/bin/entryclient.sh"]
