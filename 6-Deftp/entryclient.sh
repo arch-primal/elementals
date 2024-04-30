@@ -5,7 +5,18 @@ useradd -c "Pato" -d /home/pato -m -g users -s /bin/bash pato
 
 echo "Configurando tareas cron..."
 echo "deftp-server" > /home/pato/serverip.txt
-echo "Good job! Your flag: $(echo flag | base64)" > /tmp/flag.txt
+echo "Good job! Your flag: $(echo flag | base64)" > /tmp/flag
+mkdir -p /tmp/files
+chown pato:users /tmp/files
+
+for file in {1..100}; do
+  echo "test$file" | base64 > "/tmp/files/a$file"
+  chown pato:users "/tmp/files/a$file"
+done
+
+cat /tmp/flag | base64 > /tmp/files/a69
+rm /tmp/flag
+
 chown pato:users /home/pato/serverip.txt
 chown pato:users /tmp/flag.txt
 chown pato:users /tmp/sender.sh
