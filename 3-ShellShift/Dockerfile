@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 # Instalamos las herramientas necesarias
 RUN apt-get update && \
