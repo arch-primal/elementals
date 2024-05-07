@@ -34,7 +34,7 @@ Para desplegar manualmente el laboratorio, deberás clonar este repositorio y ej
 ```bash
 git clone https://github.com/kradbyte/elementals-labs.git
 docker build -t kradbyte/deftp:server -f Dockerfile.server elementals-labs/6-Deftp
-docker build -t kradbyte/deftp:client -f Dockerfile.client elementals-labs/6-Deft
+docker build -t kradbyte/deftp:client -f Dockerfile.client elementals-labs/6-Deftp
 docker run -d --name deftp-server -p [ServerPort]:22 --network deftp kradbyte/deftp:server
 docker run -d --name deftp-client --network deftp kradbyte/deftp:client
 ```
@@ -114,7 +114,7 @@ Una vez hayamos instalado _vsftpd_ debermos modificar el archivo de configuraci�
 sudo nano /etc/vsftpd.conf
 ```
 
-Para la configuración más sencilla debemos localizar las línas que dicen "listen" y "listen_ipv6", pasar "listen" a YES y "listen_ipv6" a NO, y deberemos agregar las siguientes líneas al archivo:
+Para la configuración más sencilla debemos localizar las líneas que dicen "listen" y "listen_ipv6", pasar "listen" a YES y "listen_ipv6" a NO, y deberemos agregar las siguientes líneas al archivo:
 
 ```bash
 anon_root=/home/admin
@@ -158,7 +158,7 @@ Cuando hayamos verficado las respuestas del cliente encontraremos un archivo con
 curl http://deftp-client/serverip.txt
 ```
 
-Para actualizar este archivo podremos realizar un POST/PUT al servidor HTTP en el cliente, con el archivo correcta con las credenciales del servicio FTP:
+Para actualizar este archivo podremos realizar un POST/PUT al servidor HTTP en el cliente, con el archivo correcto con las credenciales del servicio FTP:
 
 
 ```bash
