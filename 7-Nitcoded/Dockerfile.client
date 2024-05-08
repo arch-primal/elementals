@@ -1,0 +1,11 @@
+FROM ubuntu:24.04
+
+RUN apt-get update && apt-get install -y \
+	cron curl
+
+COPY clientpoint.sh /usr/local/bin/clientpoint.sh
+COPY sender.sh /root/sender.sh
+
+RUN chmod 700 /usr/local/bin/clientpoint.sh
+
+ENTRYPOINT ["/usr/local/bin/clientpoint.sh"]

@@ -1,0 +1,18 @@
+FROM ubuntu:24.04
+
+RUN apt-get update && apt-get install -y \
+	zsh curl unzip eza bat nano sudo openssh-server
+
+# Archivos de configuración
+COPY serverpoint.sh /usr/local/bin/serverpoint.sh
+COPY nanorc /etc/nanorc
+COPY .zshrc /root/.zshrc
+COPY command.sh /tmp/command.sh
+
+# OhMyPosh
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s
+EXPOSE 22 4646
+
+# Archivo principal de configuración
+RUN chmod 700 /usr/local/bin/serverpoint.sh
+ENTRYPOINT ["/usr/local/bin/serverpoint.sh"]
