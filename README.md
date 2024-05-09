@@ -64,6 +64,15 @@ El laboratorio [FTPivot](/5-FTPivot) está enfocado en la práctica de obtener u
 **Descripción**
 El laboratorio [DeFTP](/6-Deftp) está enfocado en la práctica de administración de servidores Linux, repasando los permisos de usuarios y configuración del servicio FTP.
 
+### 2.7. Administration tasks ft. command's SSH
+
+**Objetivos de aprendizaje:**
+- Configurar tareas automáticas.
+- Configuración básica de servicio HTTP.
+
+**Descripción**
+El laboratorio [Nitcoded](/7-Nitcoded) está enfocado en la práctica de implementar el servicio HTTP con capacidades POST/PUT y programar tareas automatizadas.
+
 ## 3. Comenzando
 
 Para empezar con 'Elementals', asegúrate de tener Docker instalado en tu sistema. Cada laboratorio viene con instrucciones detalladas sobre cómo desplegarlo y configurarlo usando Docker, lo que te permitirá enfocarte en el aprendizaje y la práctica sin preocuparte por la configuración del entorno.
