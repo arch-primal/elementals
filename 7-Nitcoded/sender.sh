@@ -18,7 +18,7 @@ for i in {1..10}; do
   curl -T "/root/files/file$(($index + $i)).txt" "http://nitcoded-server:80/file$i.txt"
 
   if [ $? -ne 0 ]; then
-    echo "$(date) - Error al enviar archivos." >> /root/sender.log
+    echo "$(date) - Error al enviar archivos. Reiniciando envío." >> /root/sender.log
     echo -n "0" > /root/index
     exit 1
   fi

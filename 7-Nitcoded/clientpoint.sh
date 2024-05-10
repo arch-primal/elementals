@@ -18,5 +18,6 @@ done
 echo "Configurando tarea cron..."
 chmod 700 /root/sender.sh
 echo "*/3 * * * * root /root/sender.sh" > /etc/cron.d/sender
+service cron start
 
 tail -f /dev/null

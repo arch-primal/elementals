@@ -125,6 +125,12 @@ Sin embargo, nuestro servidor debe tener capacidades POST/PUT, dado que el clien
 Cuando hayamos configurado el servidor correctamente, el cliente comenzará a enviar los archivos en lotes de 10 cada 3 minutos, por lo que podremos buscar una forma de gestionar estas recepciones, dado que para recibir todos los archivos tardará cerca de 30 minutos.
 Se sugiere implementar un script en bash que guarde los arhivos en alguna ubicación y vaya renombrando los archivos recibidos, junto con una tarea cron para que el proceso se realice automáticamente.
 
+> **Nota**: Si el cliente tienen algún error al enviar los archivos se reiniciará el índice de envío de archivos; es decir, si se enviaron los archivos 20-30 y paramos el servidor, el cliente intentará enviar todos los archivos nuevamente desde el primero. Podremos ver los logs de los envíos con el siguiente comando:
+
+```bash
+docker exec nitcoded-client cat /root/sender.log
+```
+
 ### 4.5. Obtención de la flag
 
 Una vez hayamos obtenido todos los archivos (90 en total) deberemos realizar la lectura de cada uno, ya que al descrifrarlos encontraremos un caracter diferente en cada archivo que deberás compilar para obtener una frase encriptada en base64 que contendrá la flag. Esto también se puede automatizar con un script.
