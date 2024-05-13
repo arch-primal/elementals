@@ -8,17 +8,15 @@ fi
 # Leer el índice actual
 index=$(cat /root/index)
 
-# Reiniciar índice si alcanza 90
-if (( "$index" >= 90 )); then
-  echo -n "0" > /root/index
-  echo "$(date) - Todos los archivos fueron enviados." >> /root/sender.log
-  exit 1
-fi
-
 # Enviar 10 archivos
 for i in {0..9}; do
   if [[ ! -f "/root/files/file$(($index + $i)).txt" ]]; then
     echo "$(date) - Archivo file$(($index + $i)).txt no encontrado." >> /root/sender.log
+
+    if (( $(($index + $i)) > 80 )); then
+      echo -n "0" > /root/index
+      echo "$(date) - Todos los archivos fueron enviados." >> /root/sender.log
+    fi
   fi
 
   curl -T "/root/files/file$(($index + $i)).txt" "http://nitcoded-server:80/file$i.txt" 2>/dev/null
