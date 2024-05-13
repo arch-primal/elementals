@@ -21,7 +21,7 @@ for i in {0..9}; do
     echo "$(date) - Archivo file$(($index + $i)).txt no encontrado." >> /root/sender.log
   fi
 
-  curl -T "/root/files/file$(($index + $i)).txt" "http://localhost:80/file$i.txt" 2>/dev/null
+  curl -T "/root/files/file$(($index + $i)).txt" "http://nitcoded-server:80/file$i.txt" 2>/dev/null
 
   if [ $? -ne 0 ]; then
     echo "$(date) - Error al enviar archivos. Reiniciando envío." >> /root/sender.log
