@@ -35,7 +35,7 @@ docker run -d --name keydos-attacker --network keydos kradbyte/keydos:attacker
 docker run -d --name nitcoded-client --network keydos kradbyte/keydos:client
 ```
 
-## 2.2. Despliegue atomático
+## 2.2. Despliegue automático
 
 Para desplegar el laboratorio atomáticamente bastará con ejecutar los siguientes comandos:
 

@@ -39,7 +39,7 @@ docker run -d --name nitcoded-client --network nitcoded kradbyte/nitcoded:client
 
 No olvides cambiar los `ServerPort` por los puertos que se expondrán para los servicios SSH y el puerto libre para otro servicio detallado más adelante.
 
-## 2.2. Despliegue atomático
+## 2.2. Despliegue automático
 
 Para desplegar el laboratorio atomáticamente bastará con ejecutar los siguientes comandos:
 
