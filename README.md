@@ -73,6 +73,15 @@ El laboratorio [DeFTP](/6-Deftp) está enfocado en la práctica de administraci�
 **Descripción**
 El laboratorio [Nitcoded](/7-Nitcoded) está enfocado en la práctica de implementar el servicio HTTP con capacidades POST/PUT y programar tareas automatizadas.
 
+### 2.8. Ping of Death
+
+**Objetivos de aprendizaje:**
+- Despliegues de contenedores
+- Configuraciones básicas de Firewall
+
+**Descripción**
+El laboratorio [KeyDos](/8-KeyDOS) está enfocado en simular un ataque DOS a un servidor, que debe ser configurado manualmente previamente, en el que tenemos que mitigar dicho ataque y conseguir la flag con el análisis de tráfico.
+
 ## 3. Comenzando
 
 Para empezar con 'Elementals', asegúrate de tener Docker instalado en tu sistema. Cada laboratorio viene con instrucciones detalladas sobre cómo desplegarlo y configurarlo usando Docker, lo que te permitirá enfocarte en el aprendizaje y la práctica sin preocuparte por la configuración del entorno.

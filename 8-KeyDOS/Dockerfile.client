@@ -1,0 +1,11 @@
+FROM ubuntu
+
+RUN apt-get update && apt install -y cron curl
+
+COPY sender.sh /root/sender.sh
+RUN chmod 700 /root/sender.sh
+RUN echo "@reboot root /root/sender.sh" > /etc/cron.d/sender
+RUN echo "*/5 * * * * root curl http://server/flag?key=pato" > /etc/cron.d/hints
+RUN echo "*/3 * * * * root curl http://server/flag?method=vigenere" >> /etc/cron.d/hints
+
+CMD service cron start && tail -f /dev/null
