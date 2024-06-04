@@ -22,7 +22,7 @@ Para desplegar el laboratorio es necesario tener [Docker](http://docs.docker.com
 Para desplegar el contenedor automáticamente, bastará con ejecutar el siguiente comando:
 
 ```bash
-docker exec -d --name shellshift-container -p [Host-Port1]:21 -p [Host-Port2]:22 -p [Host-Port-range]:40000-40010 kradbyte/shellshift:latest
+docker run -d --name shellshift-container -p [Host-Port1]:21 -p [Host-Port2]:22 -p [Host-Port-range]:40000-40010 kradbyte/shellshift:latest
 ```
 
 Asegúrate de reemplazar `Host-Port1`, `Host-Port2` y `Host-Port-range` con tus puertos para los servicios FTP, SSH y FTP Passive, respectivamente, en caso de querer utilizar puertos personalizados.
