@@ -8,7 +8,7 @@
 - [4. Resolución del laboratorio](#4.-resolución-del-laboratorio)
 - [4.1. Lanzamiento de servidor](#4.1.-lanzamiento-de-servidor)
 - [4.2. Instalación y configuración de nftables](#4.2.-instalación-y-configuración-de-nftables)
-- [4.3. Desincriptación de flag](#4.3.-desincriptación-de-flag)
+- [4.3. Desencriptación de flag](#4.3.-desencriptación-de-flag)
 
 ## 1. Descripción
 
@@ -106,7 +106,7 @@ apk add nftables
 
 La sintáxis de las reglas nftables podrían variar, pero el objetivo seguirá siendo mitigar un ataque DOS y sabremos que hemos tenido éxito cuando el cliente alcance las 75 conexiones consecutivas exitosas. Para este ejemplo hemos agregado un archivo [rules.sh](rules.sh), en el repositorio de este laboratorio, como script que configura las reglas para que podamos orientarnos en su configuración.
 
-### 4.3. Desincriptación de flag
+### 4.3. Desencriptación de flag
 
 Cuando hayamos obtenido la flag encriptada en los logs del cliente deberemos buscar el método y la llave entre las peticiones que hace el cliente al servidor. Para analizar el tráfico podremos utilizar alguna herramienta como tcpdump:
 
