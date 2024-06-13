@@ -9,7 +9,7 @@ echo "Configurando permisos..."
 if [[ -f /home/admin/.zshrc ]]; then
   echo "__Permisos configurados previamente__"
 else
-  echo "admin ALL= NOPASSWD: /usr/bin/apt-get install *, /usr/bin/apt-get update *, /usr/bin/apt-get update, /usr/bin/nano /etc/vsftpd.conf, /usr/bin/nano vsftpd.conf, /usr/sbin/vsftpd, /usr/sbin/service *" >> /etc/sudoers
+  echo "admin ALL= NOPASSWD: /usr/bin/apt-get install *, /usr/bin/apt-get update, /usr/bin/nano /etc/vsftpd.conf, /usr/bin/nano vsftpd.conf, /usr/sbin/vsftpd, /usr/sbin/service *" >> /etc/sudoers
   echo "Defaults rootpw" >> /etc/sudoers
   mkdir -p /var/run/vsftpd/empty
 fi
