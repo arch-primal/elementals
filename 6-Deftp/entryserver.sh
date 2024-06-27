@@ -3,13 +3,13 @@
 echo "Creando usuario administrador..."
 useradd -c "Admin" -d /home/admin -m -s /usr/bin/zsh admin
 echo "admin:spider" | chpasswd
-echo "root:asdf" | chpasswd
+echo "root:asdfasdf" | chpasswd
 
 echo "Configurando permisos..."
 if [[ -f /home/admin/.zshrc ]]; then
   echo "__Permisos configurados previamente__"
 else
-  echo "admin ALL= NOPASSWD: /usr/bin/apt-get install *, /usr/bin/apt-get update, /usr/bin/nano /etc/vsftpd.conf, /usr/bin/nano vsftpd.conf, /usr/sbin/vsftpd, /usr/sbin/service *" >> /etc/sudoers
+  echo "admin ALL= NOPASSWD: /usr/bin/apt-get install vsftpd, /usr/bin/apt-get update, /usr/bin/nano -R /etc/vsftpd.conf, /usr/bin/nano -R vsftpd.conf, /usr/sbin/vsftpd, /usr/sbin/service *" >> /etc/sudoers
   echo "Defaults rootpw" >> /etc/sudoers
   mkdir -p /var/run/vsftpd/empty
 fi
