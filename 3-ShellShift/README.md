@@ -1,17 +1,17 @@
 
 # ShellShift
 
-- [1. Instalación y despliegue](#1.-instalación-y-despliegue)
-- [1.1. Despliegue de contenedor automático](#1.1.-despliegue-de-contenedor-automático)
-- [1.2. Despliegue de contenedor manual](#1.2.-despliegue-de-contenedor-manual)
-- [2. Descripción de ejercicio](#2.-descripción-de-ejercicio)
-- [3. Solución de ejercicio](#3.-solución-de-ejercicio)
-- [3.1. Identificación de servicio FTP](#3.1.-identificación-de-servicio-ftp)
-- [3.2. Crackeo de credenciales FTP](#3.2.-crackeo-de-credenciales-ftp)
-- [3.3. Suplantación de identidad](#3.3.-suplantación-de-identidad)
-- [3.4. Reverse Shell](#3.4.-reverse-shell)
-- [3.5. Conexiones perdurables](#3.5.-conexiones-perdurables)
-- [3.6. Recuperación de credenciales](#3.6.-recuperación-de-credenciales)
+- [1. Instalación y despliegue](#1-instalación-y-despliegue)
+- [1.1. Despliegue de contenedor automático](#11-despliegue-de-contenedor-automático)
+- [1.2. Despliegue de contenedor manual](#12-despliegue-de-contenedor-manual)
+- [2. Descripción de ejercicio](#2-descripción-de-ejercicio)
+- [3. Solución de ejercicio](#3-solución-de-ejercicio)
+- [3.1. Identificación de servicio FTP](#31-identificación-de-servicio-ftp)
+- [3.2. Crackeo de credenciales FTP](#32-crackeo-de-credenciales-ftp)
+- [3.3. Suplantación de identidad](#33-suplantación-de-identidad)
+- [3.4. Reverse Shell](#34-reverse-shell)
+- [3.5. Conexiones perdurables](#35-conexiones-perdurables)
+- [3.6. Recuperación de credenciales](#36-recuperación-de-credenciales)
 
 ## 1. Instalación y despliegue
 

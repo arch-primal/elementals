@@ -1,16 +1,16 @@
 # Nitcoded
 
-- [1. Descripción](#1.-descripción)
-- [2. Instalación y despliegue](#2.-instalación-y-despliegue)
-- [2.1. Despliegue manual](#2.1.-despliegue-manual)
-- [2.2. Despliegue atomático](#2.2.-despliegue-atomático)
-- [3. Descripción del laboratorio](#3.-descripción-del-laboratorio)
-- [4. Resolución del laboratorio](#4.-resolución-del-laboratorio)
-- [4.1. Cracking de credenciales](#4.1.-cracking-de-credenciales)
-- [4.2. Sesión interactiva](#4.2.-sesión-interactiva)
-- [4.3. Configuración del servidor HTTP](#4.3.-configuración-del-servidor-http)
-- [4.4. Recepción de archivos](#4.4.-recepción-de-archivos)
-- [4.5. Obtención de la flag](#4.5.-obtención-de-la-flag)
+- [1. Descripción](#1-descripción)
+- [2. Instalación y despliegue](#2-instalación-y-despliegue)
+- [2.1. Despliegue manual](#21-despliegue-manual)
+- [2.2. Despliegue atomático](#22-despliegue-atomático)
+- [3. Descripción del laboratorio](#3-descripción-del-laboratorio)
+- [4. Resolución del laboratorio](#4-resolución-del-laboratorio)
+- [4.1. Cracking de credenciales](#41-cracking-de-credenciales)
+- [4.2. Sesión interactiva](#42-sesión-interactiva)
+- [4.3. Configuración del servidor HTTP](#43-configuración-del-servidor-http)
+- [4.4. Recepción de archivos](#44-recepción-de-archivos)
+- [4.5. Obtención de la flag](#45-obtención-de-la-flag)
 
 ## 1. Descripción
 

@@ -1,18 +1,18 @@
 # DeFTP
 
-- [1. Descripción general](#1.-descripción-general)
-- [2. Instalación y despliegue](#2.-instalación-y-despliegue)
-- [2.1. Despliegue Manual](#2.1.-despliegue-manual)
-- [2.2. Despliegue automático](#2.2.-despliegue-automático)
-- [3. Descripción del laboratorio](#3.-descripción-del-laboratorio)
-- [4. Resolución del laboratorio](#4.-resolución-del-laboratorio)
-- [4.1. Cracking de credenciales](#4.1.-cracking-de-credenciales)
-- [4.2. Instalación del servicio FTP](#4.2.-instalación-del-servicio-ftp)
-- [4.3. Configuración del servicio FTP](#4.3.-configuración-del-servicio-ftp)
-- [4.4. Lanzamiento del servicio FTP](#4.4.-lanzamiento-del-servicio-ftp)
-- [4.5. Prueba del servicio FTP](#4.5.-prueba-del-servicio-ftp)
-- [4.6. Actualización de credenciales en el cliente](#4.6.-actualización-de-credenciales-en-el-cliente)
-- [4.7. Lectura de la flag](#4.7.-lectura-de-la-flag)
+- [1. Descripción general](#1-descripción-general)
+- [2. Instalación y despliegue](#2-instalación-y-despliegue)
+- [2.1. Despliegue Manual](#21-despliegue-manual)
+- [2.2. Despliegue automático](#22-despliegue-automático)
+- [3. Descripción del laboratorio](#3-descripción-del-laboratorio)
+- [4. Resolución del laboratorio](#4-resolución-del-laboratorio)
+- [4.1. Cracking de credenciales](#41-cracking-de-credenciales)
+- [4.2. Instalación del servicio FTP](#42-instalación-del-servicio-ftp)
+- [4.3. Configuración del servicio FTP](#43-configuración-del-servicio-ftp)
+- [4.4. Lanzamiento del servicio FTP](#44-lanzamiento-del-servicio-ftp)
+- [4.5. Prueba del servicio FTP](#45-prueba-del-servicio-ftp)
+- [4.6. Actualización de credenciales en el cliente](#46-actualización-de-credenciales-en-el-cliente)
+- [4.7. Lectura de la flag](#47-lectura-de-la-flag)
 
 ## 1. Descripción general
 

@@ -1,18 +1,18 @@
 # FTPivot
 
-- [1. Descripción General](#1.-descripción-general)
-- [2. Instalación y Despliegue](#2.-instalación-y-despliegue)
-- [2.1. Despliegue automático](#2.1.-despliegue-automático)
-- [2.2. Despliegue manual](#2.2.-despliegue-manual)
-- [3. Descripción de laboratorio](#3.-descripción-de-laboratorio)
-- [4. Solución del Laboratorio](#4.-solución-del-laboratorio)
-- [4.1. Cracking de Credenciales](#4.1.-cracking-de-credenciales)
-- [4.2. Búsqueda de la flag](#4.2.-búsqueda-de-la-flag)
-- [4.3. Recolección de información](#4.3.-recolección-de-información)
-- [4.4. Monitoreo de Tráfico FTP](#4.4.-monitoreo-de-tráfico-ftp)
-- [4.5. Acceso FTP y Manipulación de Scripts](#4.5.-acceso-ftp-y-manipulación-de-scripts)
-- [4.6. SSH y Descubrimiento de PassPhrase](#4.6.-ssh-y-descubrimiento-de-passphrase)
-- [4.7. Conversión Hexadecimal y Descubrimiento de la Flag](#4.7.-conversión-hexadecimal-y-descubrimiento-de-la-flag)
+- [1. Descripción General](#1-descripción-general)
+- [2. Instalación y Despliegue](#2-instalación-y-despliegue)
+- [2.1. Despliegue automático](#21-despliegue-automático)
+- [2.2. Despliegue manual](#22-despliegue-manual)
+- [3. Descripción de laboratorio](#3-descripción-de-laboratorio)
+- [4. Solución del Laboratorio](#4-solución-del-laboratorio)
+- [4.1. Cracking de Credenciales](#41-cracking-de-credenciales)
+- [4.2. Búsqueda de la flag](#42-búsqueda-de-la-flag)
+- [4.3. Recolección de información](#43-recolección-de-información)
+- [4.4. Monitoreo de Tráfico FTP](#44-monitoreo-de-tráfico-ftp)
+- [4.5. Acceso FTP y Manipulación de Scripts](#45-acceso-ftp-y-manipulación-de-scripts)
+- [4.6. SSH y Descubrimiento de PassPhrase](#46-ssh-y-descubrimiento-de-passphrase)
+- [4.7. Conversión Hexadecimal y Descubrimiento de la Flag](#47-conversión-hexadecimal-y-descubrimiento-de-la-flag)
 
 ## 1. Descripción General
 

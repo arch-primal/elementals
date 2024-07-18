@@ -1,19 +1,19 @@
 # SSHarknet
 
-- [1. Instalación y despliegue](#1.-instalación-y-despliegue)
-- [1.1. Despliegue automático](#1.1.-despliegue-automático)
-- [1.2. Despliegue manual](#1.1.-despliegue-manal)
-- [2. Descripción de ejercicio](#2.-descripción-de-ejercicio)
-- [3. Solución de ejercicio](#3.-solución-de-ejercicio)
-- [3.1. Identificación de servicio FTP](#3.1.-identificación-de-servicio-ftp)
-- [3.2. Crackeo de credenciales FTP](#3.2.-crackeo-de-credenciales-ftp)
-- [3.3. Conexión al servidor](#3.3.-conexión-al-servidor)
-- [3.4. Búsqueda de la flag](#3.4.-búsqueda-de-la-flag)
-- [3.5. Interpretación de tareas programadas](#3.5.-interpretación-de-tareas-programadas)
-- [3.6. Intercepción de tráfico interno](#3.6.-intercepción-de-tráfico-interno)
-- [3.7. Análisis de tráfico](#3.7.-análisis-de-tráfico)
-- [3.8. Descompresión de archivo](#3.8.-descomprensión-de-archivo)
-- [3.9. Lectura de la flag](#3.9.-lectura-de-la-flag)
+- [1. Instalación y despliegue](#1-instalación-y-despliegue)
+- [1.1. Despliegue automático](#11-despliegue-automático)
+- [1.2. Despliegue manual](#11-despliegue-manal)
+- [2. Descripción de ejercicio](#2-descripción-de-ejercicio)
+- [3. Solución de ejercicio](#3-solución-de-ejercicio)
+- [3.1. Identificación de servicio FTP](#31-identificación-de-servicio-ftp)
+- [3.2. Crackeo de credenciales FTP](#32-crackeo-de-credenciales-ftp)
+- [3.3. Conexión al servidor](#33-conexión-al-servidor)
+- [3.4. Búsqueda de la flag](#34-búsqueda-de-la-flag)
+- [3.5. Interpretación de tareas programadas](#35-interpretación-de-tareas-programadas)
+- [3.6. Intercepción de tráfico interno](#36-intercepción-de-tráfico-interno)
+- [3.7. Análisis de tráfico](#37-análisis-de-tráfico)
+- [3.8. Descompresión de archivo](#38-descomprensión-de-archivo)
+- [3.9. Lectura de la flag](#39-lectura-de-la-flag)
 
 ## 1. Instalación y despliegue
 

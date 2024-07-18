@@ -1,14 +1,14 @@
 # Nitcoded
 
-- [1. Descripción](#1.-descripción)
-- [2. Instalación y despliegue](#2.-instalación-y-despliegue)
-- [2.1. Despliegue manual](#2.1.-despliegue-manual)
-- [2.2. Despliegue atomático](#2.2.-despliegue-atomático)
-- [3. Descripción del laboratorio](#3.-descripción-del-laboratorio)
-- [4. Resolución del laboratorio](#4.-resolución-del-laboratorio)
-- [4.1. Lanzamiento de servidor](#4.1.-lanzamiento-de-servidor)
-- [4.2. Instalación y configuración de nftables](#4.2.-instalación-y-configuración-de-nftables)
-- [4.3. Desencriptación de flag](#4.3.-desencriptación-de-flag)
+- [1. Descripción](#1-descripción)
+- [2. Instalación y despliegue](#2-instalación-y-despliegue)
+- [2.1. Despliegue manual](#21-despliegue-manual)
+- [2.2. Despliegue atomático](#22-despliegue-atomático)
+- [3. Descripción del laboratorio](#3-descripción-del-laboratorio)
+- [4. Resolución del laboratorio](#4-resolución-del-laboratorio)
+- [4.1. Lanzamiento de servidor](#41-lanzamiento-de-servidor)
+- [4.2. Instalación y configuración de nftables](#42-instalación-y-configuración-de-nftables)
+- [4.3. Desencriptación de flag](#43-desencriptación-de-flag)
 
 ## 1. Descripción
 
