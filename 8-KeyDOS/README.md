@@ -28,7 +28,7 @@ docker network create keydos
 Para desplegar manualmente el laboratorio, deberás clonar este repositorio y ejecutar los siguientes comandos Docker para su lanzamiento:
 
 ```bash
-git clone https://github.com/kradbyte/elementals-labs.git
+git clone https://github.com/oppaisdf/elementals-labs.git
 docker build -f kradbyte/keydos:attacker -f Dockerfile.attacker elementals-labs/8-KeyDOS
 docker build -f kradbyte/keydos:client -f Dockerfile.client elementals-labs/8-KeyDOS
 docker run -d --name keydos-attacker --network keydos kradbyte/keydos:attacker

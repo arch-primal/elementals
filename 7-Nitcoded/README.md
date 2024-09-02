@@ -30,7 +30,7 @@ docker network create nitcoded
 Para desplegar manualmente el laboratorio, deberás clonar este repositorio y ejecutar los siguientes comandos Docker para su lanzamiento:
 
 ```bash
-git clone https://github.com/kradbyte/elementals-labs.git
+git clone https://github.com/oppaisdf/elementals-labs.git
 docker build -f kradbyte/nitcoded:server -f Dockerfile.server elementals-labs/7-Nitcoded 
 docker build -f kradbyte/nitcoded:client -f Dockerfile.client elementals-labs/7-Nitcoded
 docker run -d --name nitcoded-server --network nitcoded -p [ServerPort]:22 -p [ServerPort]:4646 kradbyte/nitcoded:server

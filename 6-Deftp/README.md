@@ -32,7 +32,7 @@ docker network create deftp
 Para desplegar manualmente el laboratorio, deberás clonar este repositorio y ejecutar los comandos Docker para su lanzamiento:
 
 ```bash
-git clone https://github.com/kradbyte/elementals-labs.git
+git clone https://github.com/oppaisdf/elementals-labs.git
 docker build -t kradbyte/deftp:server -f Dockerfile.server elementals-labs/6-Deftp
 docker build -t kradbyte/deftp:client -f Dockerfile.client elementals-labs/6-Deftp
 docker run -d --name deftp-server -p [ServerPort]:22 --network deftp kradbyte/deftp:server

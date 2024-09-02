@@ -11,7 +11,7 @@ Una vez tengas Docker instalado, sigue los siguientes pasos para desplegar el pr
 1. **Clona el repositorio**
 
 ```bash
-git clone https://github.com/kradbyte/elementals-labs.git
+git clone https://github.com/oppaisdf/elementals-labs.git
 cd elementals-labs/2-SSHield
 ```
 

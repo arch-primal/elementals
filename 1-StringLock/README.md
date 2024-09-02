@@ -14,7 +14,7 @@ Una vez que tengas Docker preparado, sigue los siguientes pasos para desplegar S
 1. **Clona el Repositorio**
 
 ```bash
-git clone https://github.com/arch-primal/elementals-labs.git
+git clone https://github.com/oppaisdf/elementals-labs.git
 cd elementals-labs/1-StringLock
 ```
 

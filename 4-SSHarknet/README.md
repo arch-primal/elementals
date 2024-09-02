@@ -34,7 +34,7 @@ Asegúrate de reemplazar `HostPor1`, `HostPort2` y `HostPortRange` con los puert
 Para desplegar el contenedor manualmente primero deberemos clonar el repositorio y construir la imagen:
 
 ```bash
-git clone https://github.com/kradbyte/elemental-labs.git
+git clone https://github.com/oppaisdf/elemental-labs.git
 docker build -t kradbyte/ssharknet:latest elementals-labs/4-SSHarknet
 ```
 

@@ -32,7 +32,7 @@ Asegúrate de reemplazar `Host-Port1`, `Host-Port2` y `Host-Port-range` con tus 
 Para desplegar el contenedor manualmente primero deberemos clonar el repositorio y construir la imagen:
 
 ```bash
-git clone https://github.com/kradbyte/elementals-labs.git
+git clone https://github.com/oppaisdf/elementals-labs.git
 docker build -t kradbyte/shellshift:latest elementals-labs/3-ShellShift
 ```
 

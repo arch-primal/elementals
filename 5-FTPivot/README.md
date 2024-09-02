@@ -42,7 +42,7 @@ No olvides reemplazar `HostPort` por el puerto de tu host por donde expondrás e
 Para construir tus propias imágenes deberás clonar el repositorio y construir las imágenes:
 
 ```bash
-git clone https://github.com/kradbyte/elemental-labs.git
+git clone https://github.com/oppaisdf/elemental-labs.git
 docker build -t kradbyte/ftpivot:pivot1 -f elementals-labs/5-FTPivot/Dockerfile.a elementals-labs/5-FTPivot
 docker build -t kradbyte/ftpivot:pivot2 -f elementals-labs/5-FTPivot/Dockerfile.b elementals-labs/5-FTPivot
 ```
